@@ -1,0 +1,107 @@
+==============================
+GIT COMMANDS CHEAT SHEET
+==============================
+
+--- 1️⃣ Repository Setup ---
+git init
+  # Local folder ko Git repository me convert karta hai
+git clone <repo-url>
+  # Remote repo ko local machine me copy karta hai
+
+--- 2️⃣ Remote Management ---
+git remote -v
+  # Current remote repositories check karta hai
+git remote add origin <repo-url>
+  # Naya remote repo add karta hai
+git remote remove origin
+  # Remote remove karta hai
+git remote set-url origin <url>
+  # Remote repo URL update karta hai
+
+--- 3️⃣ Basic Workflow (Add, Commit, Push) ---
+git status
+  # Current changes aur branch status dikhata hai
+git add <file>
+  # Specific file stage karta hai commit ke liye
+git add .
+  # Saari changed files stage karta hai
+git commit -m "message"
+  # Staged changes commit karta hai
+git branch
+  # Current branch check karta hai
+git branch -M <branch>
+  # Branch rename ya default branch set karta hai
+git push -u origin <branch>
+  # Local branch ko remote push karta hai aur tracking set karta hai
+git push
+  # Normal push (tracking branch hone par)
+git push --force
+  # Remote ko overwrite karta hai (dhyan se use kare)
+
+--- 4️⃣ Updating from Remote ---
+git pull origin <branch>
+  # Remote changes ko pull karke local me merge karta hai
+git pull origin <branch> --allow-unrelated-histories
+  # Do alag repositories ko merge karne ke liye
+git fetch
+  # Remote changes fetch karta hai, merge nahi karta
+git merge <branch>
+  # Kisi branch ke changes ko current branch me merge karta hai
+
+--- 5️⃣ Branch Management ---
+git branch <branch-name>
+  # Nayi branch create karta hai
+git checkout <branch-name>
+  # Branch switch karta hai
+git checkout -b <branch-name>
+  # Nayi branch create karke switch karta hai
+git branch -d <branch>
+  # Branch delete karta hai
+git merge <branch>
+  # Kisi branch ke changes ko current branch me merge karta hai
+
+--- 6️⃣ Viewing History ---
+git log
+  # Commit history dikhata hai
+git log --oneline
+  # Commit history ek line me dikhata hai
+git diff
+  # Current changes dikhata hai
+git show <commit-id>
+  # Specific commit ke changes dikhata hai
+
+--- 7️⃣ Undo / Reset Commands ---
+git reset --soft <commit>
+  # Commit undo karta hai, changes stage me rehte hain
+git reset --hard <commit>
+  # Commit undo karta hai aur changes delete ho jate hain
+git checkout -- <file>
+  # File ke local changes discard karta hai
+git revert <commit>
+  # Commit ko undo karke naya commit create karta hai (safe)
+
+--- 8️⃣ Stashing (Temporary Changes) ---
+git stash
+  # Current changes temporarily store karta hai
+git stash list
+  # Saved stashes list karta hai
+git stash apply
+  # Latest stash apply karta hai
+git stash pop
+  # Latest stash apply karke delete karta hai
+
+--- 9️⃣ Tagging ---
+git tag <tag-name>
+  # Commit ke liye tag create karta hai (versioning ke liye)
+git push origin <tag-name>
+  # Tag ko remote me push karta hai
+git tag -d <tag-name>
+  # Local tag delete karta hai
+git push origin --delete <tag-name>
+  # Remote tag delete karta hai
+
+--- 🔧 Common Conflict Resolution ---
+# Agar merge conflict aaye:
+# 1. File me conflict markers (<<<<<<<, =======, >>>>>>>) remove karo
+# 2. git add <file> karo
+# 3. git commit -m "Resolved merge conflict" karo

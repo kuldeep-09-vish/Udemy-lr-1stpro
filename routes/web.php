@@ -75,7 +75,7 @@ Route::prefix('admin')->group(function(){
 
     Route::get('/', function(){
         return view('admin.login');
-    })->name('login');
+    })->name('admin.login');
 
 
     Route::get('/login', function(){
@@ -127,15 +127,9 @@ Route::controller(AuthController::class)->group(function(){
 Route::prefix('user')->controller(UserAuthController::class)->group(function(){
 
     Route::post('/registered','UserRegister')->name('registered');
-    Route::post('/login','UserLogin')->name('userlogin');
+    Route::post('/userlogin','UserLogin')->name('userlogin');
 
 });
-
-
-
-
-
-
 
 // User Registration & Login Routes End
 

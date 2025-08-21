@@ -6,6 +6,13 @@
     </div>
     @endif
 
+    @if(session('error'))
+    <div class="alert alert-danger fade show text-center" role="alert">
+        {{ session('error') }}
+
+    </div>
+    @endif
+
     @if($errors->has('email'))
     <div class="alert alert-danger text-center">
         @error('email')

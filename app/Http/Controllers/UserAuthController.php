@@ -5,18 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserAuthController extends Controller
 {
     public function UserLogin(Request $request){
-        dd($request->all());
 
-        return ('login user successfully');
+        $credantional = $request->validate([
+            'email'    => 'required|email|exists:users,email',
+            'password' => 'required|min:6',
+        ]);
 
+        // Attempt login
+        if (Auth()->attempt($credantional)){
+            session('email', $credantional['email']);
+            session('password', $credantional['password']);
+            return redirect()->route('home')->with('success', 'register user login successfully');
+        }
+        else{
+             return redirect()->back()
+            ->withInput() // input values wapas dikhane ke liye
+            ->with('error', 'Invalid login credentials');
+        }
     }
-
-
-
 
     public function UserRegister(Request $request){
 

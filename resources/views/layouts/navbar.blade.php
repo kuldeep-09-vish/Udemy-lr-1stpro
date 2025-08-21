@@ -1,5 +1,4 @@
 <nav class="navbar navbar-expand u-header__navbar py-0 justify-content-xl-between max-width-270 min-width-270">
-    <!-- Logo -->
     <a class="order-1 order-xl-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-center"
         href="{{ route('home') }}" aria-label="Electro">
         <svg version="1.1" x="0px" y="0px" width="175.748px" height="42.52px" viewBox="0 0 175.748 42.52"
@@ -45,9 +44,7 @@
             </path>
         </svg>
     </a>
-    <!-- End Logo -->
 
-    <!-- Fullscreen Toggle Button -->
     <button id="sidebarHeaderInvokerMenu" type="button" class="navbar-toggler d-block btn u-hamburger mr-3 mr-xl-0"
         aria-controls="sidebarHeader" aria-haspopup="true" aria-expanded="false" data-unfold-event="click"
         data-unfold-hide-on-scroll="false" data-unfold-target="#sidebarHeader1" data-unfold-type="css-animation"
@@ -56,5 +53,4 @@
             <span class="u-hamburger__inner"></span>
         </span>
     </button>
-    <!-- End Fullscreen Toggle Button -->
 </nav>

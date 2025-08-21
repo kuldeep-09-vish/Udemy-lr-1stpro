@@ -60,7 +60,7 @@
         {{-- Error Message --}}
         @if(session('error'))
         <div class="alert alert-danger">
-            {{ session('error') }}  
+            {{ session('error') }}
         </div>
         @endif
 
@@ -505,24 +505,21 @@
     });
     </script>
 
-    <script>
-
-    // console.log();
-
-    document.querySelector('button.loginFormUser').addEventListener('click', function() {
-        console.log('programm working');
+    <!-- <script>
+    document.querySelector('button.loginFormUser').addEventListener('click', function(e) {
+        e.preventDefault();
+        let email = document.querySelector('input#signinEmail').value; 
+        let password = document.querySelector('input#signinPassword').value;
+        console.log(email);
+        console.log(password);
+        console.log('page not reload');
     });
-  
 
-        // let ajexco = new XMLHttpRequest();
-       
-        // ajexco.open('Post', 'http://127.0.0.1:8000/userlogin');
+    let ajexco = new XMLHttpRequest();
 
-    
-
-
-    </script>
-
+    ajexco.open('Post', 'http://127.0.0.1:8000/userlogin');
+    ajexco.send('Post', '');
+    </script> -->
 </body>
 
-</html>
+</html> 

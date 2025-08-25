@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        // User::factory()->create([
-        //     'name' => 'kuldeep vishwakarma ',
-        //     'email' => 'kuldeep.vish.09@gmail.com',
-        //     'password' => 'kuldeep.vish.09',
-        //     'role' => 'admin'
-        // ]);
+        User::factory()->create([
+            'name' => 'kuldeep vishwakarma ',
+            'email' => 'kuldeep.vish.09@gmail.com',
+            'password' => 'kuldeep.vish.09',
+            'role' => 'admin'
+        ]);
     }
 }

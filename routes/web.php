@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserAuthController;
+use App\Http\Controllers\CategoryController;
+// use App\Http\Controllers\ProductController;
 
 
 Route::get('/', function () {
@@ -77,35 +79,38 @@ Route::prefix('admin')->group(function(){
         return view('admin.login');
     })->name('admin.login');
 
-
     Route::get('/login', function(){
         return view('admin.login');
     })->name('login');
-
-
-
-
-    Route::get('/widgets', function(){
-        return view('admin.widgets');
-    })->name('widgets');
 });
 
 Route::middleware(['auth.check'])->prefix('admin')->group(function () {
+
         Route::get('/dashboard', function(){
             return view('admin.dashboard');
         })->name('dashboard'); 
 
-        Route::get('/dashboard2', function(){
-        return view('admin.index2');
-        })->name('dashboard2'); 
+    
+});
 
-        Route::get('/dashboard3', function(){
-        return view('admin.index3');
-        })->name('dashboard3');
+Route::middleware(['auth.check'])->prefix('admin/category')->controller(CategoryController::class)->group(function(){
+    Route::get('/', 'index')->name('category');
+    Route::get('/create', 'create')->name('category.create');
+
+    Route::get('/edit/{category}', 'edit')->name('category.edit');
+
+    Route::get( '/{category}', 'show')->name('admin.category.show');
+
+    Route::post('/category', 'store')->name('submit.create.catogery');
+    Route::delete('/{category}', 'destroy')->name('category.destroy');
+    Route::put('/{category}', 'update')->name('submit.update.catogery');
 
 
-    });
+});
 
+Route::get('/createss', function(){
+    return view('admin.product.create');
+});
 // Admin Panel Routes end
 
 //-----------------------------------------------------------------------------------------------------------------------

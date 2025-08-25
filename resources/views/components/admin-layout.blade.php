@@ -11,6 +11,13 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ url('/') }}/plugins/fontawesome-free/css/all.min.css">
+    <!-- DataTable css -->
+    <link rel="stylesheet" href="{{ url('/') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="{{ url('/') }}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -35,33 +42,18 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ url('/') }}/dist/img/AdminLTELogo.png" alt="AdminLTELogo"
-                height="60" width="60">
+            <img class="animation__shake" src="{{ url('/') }}/dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
+                width="60">
         </div>
         <x-header />
         <x-mainsidebar />
 
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
-                        </div><!-- /.col -->
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="/">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
-                            </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
             <!-- /.content-header -->
             {{ $slot}}
         </div>
-        
+
 
         <x-sidebar />
         <x-footer />
@@ -75,7 +67,7 @@
     <script src="{{ url('/') }}/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
-        $.widget.bridge('uibutton', $.ui.button)
+    $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
     <script src="{{ url('/') }}/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -103,6 +95,28 @@
     <script src="{{ url('/') }}/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ url('/') }}/dist/js/pages/dashboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.tiny.cloud/1/jpskzb5xdtymj4x1rf6gnlljqe5bsdxow6et4q1y625wv83o/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script>
+    tinymce.init({
+        selector: '#productDescription',
+        height: 300,
+        menubar: true,
+        plugins: [
+            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview', 'anchor',
+            'searchreplace', 'visualblocks', 'code', 'fullscreen',
+            'insertdatetime', 'media', 'table', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | formatselect | ' +
+            'bold italic underline backcolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | help',
+        content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }"
+    });
+    </script>
 </body>
 
 </html>

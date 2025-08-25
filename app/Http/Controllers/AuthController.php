@@ -23,7 +23,7 @@ class AuthController extends Controller
             return redirect()->route('dashboard')
                              ->with('success', 'Admin Login successful!');
         } else {
-            return redirect()->route('dashboard2')
+            return redirect()->route('home')
                              ->with('success', 'User Login successful!');
         }
     }
